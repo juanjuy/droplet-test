@@ -1,0 +1,23 @@
+doctype html
+
+html(lang="en-US")
+
+  head
+    title Notes
+    meta(charset="UTF-8")
+    script(src="/javascripts/application.js")
+
+  body
+    header
+      h1 Notes
+
+  block main 
+    form(action="/notes/new" method="post")
+      input(type="text" name="note")
+      button(type="submit") Submit
+    if notes === undefined || notes.length === 0
+      p#no_notes You don't have any notes.
+    else 
+      ul#lists 
+        each note in notes 
+          li=note.content
